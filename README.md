@@ -31,3 +31,17 @@ $ node server.js
 ```bash
 $ npm start
 ```
+
+### Run karma test
+```bash
+$ npm test
+```
+* Or test single run
+```bash
+$ npm run test-single-run
+```
+
+### Run Protractor e2e testing
+```bash
+$ npm run protractor
+```
