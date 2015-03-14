@@ -23,10 +23,9 @@ app.post('/api/posts', function(req, res, next) {
 		body: req.body.body
 	});	
 	post.save(function(err, post){
-		if(err) return next(err); 
-		res.status(201);
+		if(err) return next(err);
+		res.status(201).json(post); 
 	});	
-	res.sendStatus(201);
 });
 
 app.listen(3000, function(){
