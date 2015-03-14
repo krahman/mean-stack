@@ -1,2 +1,7 @@
 # Ignore node_modules
 node_modules/
+
+# Ignore bower components folder
+app/components/
+.bower-registry/
+.bower-cache/
