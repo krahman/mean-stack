@@ -1,7 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-
+var Post = require('./models/post');
 var app = express();
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -14,11 +15,17 @@ app.get('/api/posts', function(req, res) {
 	]);
 });
 
-app.post('/api/posts', function(req, res) {
+app.post('/api/posts', function(req, res, next) {
 	console.log('post received!');
 	if (!req.body) return res.sendStatus(400);
-	console.log(req.body.username);
-	console.log(req.body.body);
+	var post = new Post({
+		username: req.body.username,
+		body: req.body.body
+	});	
+	post.save(function(err, post){
+		if(err) return next(err); 
+		res.status(201);
+	});	
 	res.sendStatus(201);
 });
 
