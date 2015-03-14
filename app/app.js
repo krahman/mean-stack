@@ -4,7 +4,7 @@
 angular.module('meanStack', [
   'ngRoute',
   'meanStack.home'
-]).
-  config(['$routeProvider', function ($routeProvider) {
+])
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/home'});
   }]);
