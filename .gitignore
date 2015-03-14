@@ -5,3 +5,6 @@ node_modules/
 app/components/
 .bower-registry/
 .bower-cache/
+
+# Ignore webstorm folder
+.idea/
