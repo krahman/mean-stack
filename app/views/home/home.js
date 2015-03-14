@@ -4,7 +4,7 @@ angular.module('meanStack.home', ['ngRoute'])
 
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/home', {
-      templateUrl: 'home/index.html',
+      templateUrl: 'views/home/index.html',
       controller: 'HomeCtrl'
     });
   }])
