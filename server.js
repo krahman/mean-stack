@@ -6,6 +6,10 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get('/', function(req, res) {
+	res.sendFile(__dirname + '/app/views/index.html');
+})
+
 app.get('/api/posts', function(req, res) {
 	res.json([
 		{
