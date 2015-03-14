@@ -17,7 +17,17 @@ $ cd mean-stack
 ```bash
 $ npm install
 ```
+* Install required web components
+```bash
+$ bower install
+```
 * Run application
 ```bash
 $ node server.js
+```
+
+### Quick run the application
+* Use npm
+```bash
+$ npm start
 ```

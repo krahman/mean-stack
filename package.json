@@ -2,11 +2,11 @@
   "name": "mean-stack",
   "version": "1.0.0",
   "description": "Write modern Web Apps with the MEAN Stack",
-  "main": "server.js",
   "scripts": {
     "postinstall": "bower install",
 
     "prestart": "npm install",
+    "start": "node app/server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
