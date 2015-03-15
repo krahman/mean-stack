@@ -9,8 +9,7 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static('app'));
-
-require('./controllers/api/post')(app);
+app.use(require('./controllers/api/post'));
 
 app.listen(3000, function () {
   console.log('Server listening on ', 3000);
