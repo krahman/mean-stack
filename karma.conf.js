@@ -1,6 +1,6 @@
 module.exports = function (config) {
   config.set({
-    logColors: true,
+    frameworks: ['mocha', 'chai'],
     files: [
       'app/components/angular/angular.js',
       'app/components/angular-route/angular-route.js',
@@ -10,19 +10,12 @@ module.exports = function (config) {
       'app/js/services/*.js',
       'app/tests/*.test.js'
     ],
+    reporters: ['progress'],
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
     autoWatch: true,
-    frameworks: ['jasmine'],
-    browsers: ['Chrome'],
-    plugins: [
-      'karma-phantomjs-launcher',
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-jasmine',
-      'karma-junit-reporter'
-    ],
-    junitReporter : {
-      outputFile: 'test_out/unit.xml',
-      suite: 'unit'
-    }
+    browsers: ['PhantomJS'],
+    singleRun: false
   });
 };

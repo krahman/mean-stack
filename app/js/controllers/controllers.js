@@ -1,13 +1,15 @@
 'use strict';
 
 angular.module('meanStack.controllers', [])
-  .controller('HomeCtrl', function (PostsSvc, $scope) {
-    $scope.posts = [];
+  .controller('PostsCtrl', function ($scope, PostsSvc) {
     PostsSvc.fetch()
-      .success(function (posts) {
+      .then(function (posts) {
         $scope.posts = posts;
       });
-    $scope.getPosts = function() {
-      return $scope.posts;
-    }
+
+    $scope.$on('ws:new_post', function(_, post) {
+      $scope.$apply(function() {
+        $scope.posts.unshift(post);
+      });
+    });
   });

@@ -1,5 +1,5 @@
 
-<div ng-repeat="post in posts | orderBy: '-date'">
+<div ng-repeat="post in posts.data | orderBy: '-date'">
     <article>
         <h3><a href="#">{{post.title}}</a></h3>
         <h6>Written by <a href="#">{{post.username}}</a> on {{post.date}}.</h6>

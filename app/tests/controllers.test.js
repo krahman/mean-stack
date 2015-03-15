@@ -1,37 +1,33 @@
-'use strict';
+'use strict'
 
-describe('meanStack', function () {
+describe('posts.ctrl', function() {
+  beforeEach(module('meanStack.controllers'));
 
-  var $controller;
   var $scope;
 
-  beforeEach(function () {
-    angular.mock.module('meanStack.controllers');
-  });
-  beforeEach(function () {
-    angular.mock.module('meanStack.services');
-  });
+  var mockPostsSvc = {};
 
-  describe('Home Controller: ', function () {
+  beforeEach(inject(function($q) {
+    mockPostsSvc.fetch = function() {
+      var deferred = $q.defer();
+      deferred.resolve([
+        {title: 'First post', username:'khal', body: 'Node Rocks!'},
+        {title: 'Second post', username:'khal', body: 'Node Rocks!'}
+      ]);
+      return deferred.promise;
+    };
+  }));
 
-    beforeEach(angular.mock.inject(function (_$controller_, $rootScope) {
-      $controller = _$controller_;
-      $scope = $rootScope.$new();
-    }));
-
-    it('HomeCtrl should be defined', function () {
-      var homeCtrl = $controller('HomeCtrl', {
-        'PostSvc': function () {
-        }, '$scope': $scope
-      });
-      expect(homeCtrl).toBeDefined();
-
+  beforeEach(inject(function($rootScope, $controller) {
+    $scope = $rootScope.$new();
+    $controller('PostsCtrl', {
+      $scope: $scope,
+      PostsSvc: mockPostsSvc
     });
+  }));
 
-    it('$scope.posts should be an array', function () {
-      //expect($scope.getPosts).toHaveBeenCalled();
-    });
+  it('loads posts from the service', function() {
+    $scope.$digest();
+    expect($scope.posts).to.have.length(2);
   });
-
-
 });
