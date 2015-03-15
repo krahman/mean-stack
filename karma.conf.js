@@ -5,7 +5,10 @@ module.exports = function (config) {
       'app/components/angular/angular.js',
       'app/components/angular-route/angular-route.js',
       'app/components/angular-mocks/angular-mocks.js',
-      'app/views/**/*.js'
+      'app/*.js',
+      'app/js/controllers/*.js',
+      'app/js/services/*.js',
+      'app/tests/*.test.js'
     ],
     autoWatch: true,
     frameworks: ['jasmine'],
@@ -14,7 +17,12 @@ module.exports = function (config) {
       'karma-phantomjs-launcher',
       'karma-chrome-launcher',
       'karma-firefox-launcher',
-      'karma-jasmine'
-    ]
+      'karma-jasmine',
+      'karma-junit-reporter'
+    ],
+    junitReporter : {
+      outputFile: 'test_out/unit.xml',
+      suite: 'unit'
+    }
   });
 };
