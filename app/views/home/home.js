@@ -9,6 +9,6 @@ angular.module('meanStack.home', ['ngRoute'])
     });
   }])
 
-  .controller('HomeCtrl', [function () {
+  .controller('HomeCtrl', ['$http', function ($http) {
 
   }]);
