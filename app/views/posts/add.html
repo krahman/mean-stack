@@ -1,0 +1,22 @@
+<form>
+    <div class="row">
+        <div class="large-12 columns">
+            <label>Title
+                <input type="text" placeholder="Type your post title here." data-ng-model="post.title"/>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+            <label>Content
+                <textarea placeholder="Type your post content here." data-ng-model="post.body"></textarea>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-3 columns">
+            <a href="javascript:void(0);" class="button expand" ng-click="addPost()">Save</a>
+        </div>
+    </div>
+</form>

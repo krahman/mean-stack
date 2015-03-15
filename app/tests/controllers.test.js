@@ -44,8 +44,16 @@ describe('posts.ctrl', function () {
 
   it('sends a new post to the service', function () {
     sinon.spy(mockPostsSvc, 'create');
-    $scope.post = {title: 'my n post', body: 'my new post'};
+    $scope.post = {
+      username: 'khal',
+      title: 'my n post',
+      body: 'my new post'
+    };
     $scope.addPost();
-    expect(mockPostsSvc.create).to.have.been.calledWith({title: 'my n post', body: 'my new post'});
+    expect(mockPostsSvc.create).to.have.been.calledWith({
+      username: 'khal',
+      title: 'my n post',
+      body: 'my new post'
+    });
   });
 });
