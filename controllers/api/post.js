@@ -18,6 +18,7 @@ router.post('/api/posts', function (req, res, next) {
   console.log('post received!');
   if (!req.body) return res.sendStatus(400);
   var post = new Post({
+    title: req.body.title,
     username: req.body.username,
     body: req.body.body
   });

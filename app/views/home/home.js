@@ -9,6 +9,8 @@ angular.module('meanStack.home', ['ngRoute'])
     });
   }])
 
-  .controller('HomeCtrl', ['$http', function ($http) {
-
+  .controller('HomeCtrl', ['$http', '$scope', function ($http, $scope) {
+    $http.get('/api/posts').success(function(posts) {
+      $scope.posts = posts;
+    });
   }]);
