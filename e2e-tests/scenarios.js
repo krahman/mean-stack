@@ -17,8 +17,8 @@ describe('mean stack', function() {
 
 
     it('should render home when user navigates to /#/home', function() {
-      expect(element.all(by.css('[ng-view] h1')).first().getText()).
-        toMatch(/Home/);
+      expect(element.all(by.css('h1')).first().getText()).
+        toMatch(/MEAN You rock!/);
     });
 
   });

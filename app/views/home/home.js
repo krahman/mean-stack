@@ -7,10 +7,4 @@ angular.module('meanStack.home', ['ngRoute'])
       templateUrl: 'views/home/index.html',
       controller: 'HomeCtrl'
     });
-  }])
-
-  .controller('HomeCtrl', ['$http', '$scope', function ($http, $scope) {
-    $http.get('/api/posts').success(function(posts) {
-      $scope.posts = posts;
-    });
   }]);
